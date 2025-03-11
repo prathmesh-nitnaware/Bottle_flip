@@ -1,0 +1,105 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    position: relative;
+}
+
+.table {
+    width: 0px;
+    height: 0px;
+    background: #8B4513; /* Brown color for the table */
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow under the table */
+}
+
+.container {
+    position: absolute;
+    bottom: 20px; /* Position the container on the table */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottle {
+    width: 50px;
+    height: 100px;
+    background: linear-gradient(to bottom, #ffffff, #97d4fa);
+    border-radius: 10px;
+    position: relative;
+    border: 1px solid #000; /* Add border to the bottle */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    transition: transform 1s; /* Smooth transition for the flip */
+}
+
+.cap {
+    width: 30px;
+    height: 15px;
+    background: #4d87e3;
+    border-radius: 5px;
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #000; /* Add border to the cap */
+}
+
+.body {
+    width: 50px;
+    height: 90px; /* Adjust height to fill the space left by the neck */
+    background: linear-gradient(to bottom, #b3e5fc, #4fc3f7); /* Water color gradient */
+    border-radius: 10px;
+    position: absolute;
+    top: 15px; /* Adjust top position to align with the cap */
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #000; /* Add border to the body */
+}
+
+.baseline {
+    width: 500px;
+    height: 20px;
+    background: #8f7474;
+    border-radius: 25px;
+    margin-top: 0px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow under the baseline */
+}
+
+.counter {
+    position: absolute;
+    bottom: 100px;
+    left: 80px;
+    font-size: 35px;
+    color: #000;
+}
+
+@keyframes flip {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-200px) rotate(360deg);
+    }
+    100% {
+        transform: translateY(0) rotate(720deg); /* Two full flips */
+    }
+}
+
+.flip {
+    animation: flip 2s ease-in-out;
+}
+
+.stand {
+    transform: rotate(0deg); /* Keep the bottle upright */
+    transition: transform 1s; /* Smooth transition for standing */
+}
+
+.fall {
+    transform: rotate(90deg); /* Lay the bottle down horizontally */
+    transition: transform 0.5s; /* Smooth transition for falling */
+}
